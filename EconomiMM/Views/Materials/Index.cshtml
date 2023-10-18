@@ -1,0 +1,90 @@
+﻿@model IEnumerable<EconomiMM.Models.Material>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Список матеріалів</h1>
+
+<p>
+    <a asp-action="Create">Додати новий матеріал</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Назва
+            </th>
+            <th>
+                Товщина
+                <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img class="filter-icon" src="~/img/filter.png"/>
+                </button>
+
+            </th>
+            <th>
+                Ціна
+            </th>
+            <th>
+                Кількість
+            </th>
+            <th>
+                Зарезервовано
+            </th>
+            <th>
+                Продано
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thickness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sold)
+                </td>
+            <td>
+                <a asp-action="Sell" asp-route-id="@item.Id">Продати</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Фільтр товщин</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Назад"></button>
+            </div>
+            <form method="GET" asp-controller="Materials" asp-action="Index">
+                <div class="modal-body">
+                    <label class="control-label">Товщина</label>
+                    <input class="form-control" name="thickness" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                    <button id="thickness-filter-button" type="submit" class="btn btn-primary">Підтвердити</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EconomiMM.Models.SellHistory>
+
+@{
+    ViewData["Title"] = "Історія продаж";
+}
+
+<h1>Історія продаж</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Назва матеріалу
+            </th>
+            <th>
+                Кількість до продажу
+            </th>
+            <th>
+                Продано
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="sold-tr ">
+                <td>
+                    @Html.DisplayFor(modelItem => item.material.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sold)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

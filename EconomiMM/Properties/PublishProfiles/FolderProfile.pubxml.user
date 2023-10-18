@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\EMM_publish</_PublishTargetUrl>
+    <History>True|2023-10-11T23:46:21.2071682Z;True|2023-09-28T13:31:55.1015963+03:00;True|2023-09-17T22:47:42.1367630+03:00;True|2023-09-17T22:12:26.8191954+03:00;True|2023-09-17T22:11:53.2430028+03:00;True|2023-09-14T20:48:26.1204578+03:00;True|2023-09-14T19:23:49.9518449+03:00;True|2023-09-12T01:21:15.4975069+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=localhost%3bDatabase=aspnet-EconomiMM-innerDB%3bUser ID=sa%3bPassword=Cn0gh0wtyny0%3bConnect Timeout=15%3bTrusted_Connection=True%3b</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="EconomiMMContext">
+      <Value>Server=localhost%3bDatabase=aspnet-EconomiMM-innerDB%3bUser ID=sa%3bPassword=Cn0gh0wtyny0%3bConnect Timeout=15%3bTrusted_Connection=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

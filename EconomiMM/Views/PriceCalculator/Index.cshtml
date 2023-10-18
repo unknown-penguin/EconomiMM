@@ -1,0 +1,188 @@
+﻿@model EconomiMM.ViewModels.CalculatorViewModel
+@{
+}
+
+<div class="d-flex flex-row">
+    <div id="setting-selection">
+        <div class="@*border border-1*@ p-4">
+            <div class="d-flex flex-row mb-3 ms-4">
+                <div class="input-group input-group-sm ms-2 size-input">
+
+                    <span class="input-group-text">Номер замовлення</span>
+                    <input id="order-number" type="text" class="form-control " aria-describedby="inputGroup-sizing-sm">
+
+                </div>
+                <div class="input-group input-group-sm size-input">
+
+                    <span class="input-group-text">Температура</span>
+                    <input id="order-temperature" type="text" class="form-control " aria-describedby="inputGroup-sizing-sm">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">C°</span>
+                </div>
+            </div>
+            <h4> Форма</h4>
+            <div class="d-flex flex-row mx-4">
+                <div class="mx-2">
+                    <div class="my-2">
+                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="roundRadio" value="option1">
+                        <label class="form-check-label" for="round"> Круглий</label>
+                    </div>
+                    <div class="my-2">
+                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="rectangularRadio" value="option2">
+                        <label class="form-check-label" for="rectangular"> Прямокутний</label>
+                    </div>
+                </div>
+                <div class="ms-5">
+                    <div class="my-2">
+                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="flangeRadio" value="option1">
+                        <label class="form-check-label" for="flange"> Фланцевий</label>
+                    </div>
+                    <div class="my-2">
+                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="tapeRadio" value="option2">
+                        <label class="form-check-label" for="tape"> Стрічковий</label>
+                    </div>
+                </div>
+                <div class ="ms-5">
+                    <div class="mt-4">
+                        <input type="checkbox" id="insertCheckbox" name="insert" />
+                        <label for="insert"> Вкладиш</label>
+                    </div>
+                </div>
+            </div>
+            <h4> Розмір основної частини</h4>
+            <div class="d-flex flex-row mx-4">
+
+                <div class="mx-2">
+                    <div class="input-group input-group-sm mb-3 size-input">
+                        @*change it to dependig var*@
+                        <span class="input-group-text" >Довжина 1</span> 
+                        <input id="joint-length1" type="text" class="form-control">
+                        <span class="input-group-text" >мм</span>
+                    </div>
+                    <div class="input-group input-group-sm mb-3 size-input">
+                        <span class="input-group-text">Ширина</span>
+                        <input id="joint-width" type="text" class="form-control">
+                        <span class="input-group-text">мм</span>
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-row">
+                    <div class="mx-2">
+                        <button type="button" class="btn btn-outline-secondary copy-btn">-></button>
+                    </div>
+                
+                    <div class="mx-2">
+                        <div class="input-group input-group-sm mb-3 size-input">
+                            <span class="input-group-text">Довжина 2 </span>
+                            <input id="joint-length2" type="text" class="form-control">
+                            <span class="input-group-text">мм</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4> Розмір фланця</h4>
+            <div class="d-flex flex-row mx-4">
+
+                <div class="mx-2">
+                    <div class="input-group input-group-sm mb-3 size-input">
+                        <span class="input-group-text">Ширина</span>
+                        <input id="flange-width" type="text" class="form-control">
+                        <span class="input-group-text">мм</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mx-2">
+                        <div class="input-group input-group-sm mb-3 size-input">
+                            <span class="input-group-text">Коэфіцієнт</span>
+                            <input id="koef" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mx-2">
+                        <div class="input-group input-group-sm mb-3 size-input">
+                            <span class="input-group-text">Силікон</span>
+                            <input id ="silicone" type="text" class="form-control" />
+                            <span class="input-group-text">шт</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h4>Робота за основну частину</h4>
+            <div class="mx-4 size-input">
+                <div class="input-group input-group-sm m-2 size-input">
+
+                    <input id="main-part-price" type="text" class="form-control">
+                    <span class="input-group-text">грн</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="addition p-4">
+            <h4> Розміри вкладиша</h4>
+            <div class="d-flex flex-row mx-4">
+
+                <div class="mx-2">
+                    <div class="input-group input-group-sm mb-3 size-input">
+                        
+                        <span class="input-group-text">Довжина 1</span>
+                        <input id="liner-length1" type="text" class="form-control">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">мм</span>
+                    </div>
+                    <div class="input-group input-group-sm mb-3 size-input">
+                        <span class="input-group-text">Ширина</span>
+                        <input id="liner-width" type="text" class="form-control">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">мм</span>
+                    </div>
+                </div>
+
+                <div class="">
+                    
+
+                    <div class="mx-2">
+                        <div class="input-group input-group-sm mb-3 size-input">
+                            <span class="input-group-text">Висота </span>
+                            <input id="liner-height" type="text" class="form-control">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">мм</span>
+                        </div>
+                    </div>
+                    <div class="mx-2">
+                        <div class="input-group input-group-sm mb-3 size-input">
+                            <span class="input-group-text">Ширина кріплення</span>
+                            <input id="liner-binding-width" type="text" class="form-control">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">мм</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>Робота за вкладиш</h4>
+            <div class="mx-4 size-input">
+                <div class="input-group input-group-sm m-2 size-input">
+
+                    <input id="liner-price" type="text" class="form-control">
+                    <span class="input-group-text">грн</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="material-selection mt-5">
+        <div>
+            @Html.Partial("_JointMaterialTree")
+            <br />
+            @Html.Partial("_FlangeMaterialTree")
+            <br />
+            @Html.Partial("_LinerMaterialTree")
+        </div>
+        <div class="mt-5">
+            <button class="calc-btn btn-dark">Вирахувати</button>
+        </div>
+    </div>
+
+
+
+</div>
+@section scripts{
+    <script src="~/js/calculator.js" asp-append-version="true"></script>
+}

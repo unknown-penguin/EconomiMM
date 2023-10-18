@@ -1,0 +1,72 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model EconomiMM.ViewModels.MaterialTypeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Вид матеріалу</h1>
+
+<p class="inner">
+    <a asp-action="Create">Додати новий вид</a>
+</p>
+<table class="table table-primary material-type-table">
+
+    <thead>
+        <tr>
+            <th>
+                Назва
+            </th>
+            <th>
+                Виробник
+                <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img class="filter-icon" src="~/img/filter.png" />
+                </button>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MaterialTypes) {
+
+        <tr id="@item.Name" class="unshown-material">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+            </td>
+
+        </tr>
+
+}
+    </tbody>
+</table>
+
+<div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Фільтр виробників</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Назад"></button>
+            </div>
+            <form method="GET" asp-controller="MaterialTypes" asp-action="Index">
+                <div class="modal-body">
+                    <label class="control-label">Виробник</label>
+                    <select asp-items="new SelectList(Model.Manufacturers)" name="manufacturer" class="form-control"></select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                    <button id="manufacturer-filter-button" type="submit" class="btn btn-primary">Підтвердити</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/js/index.js" asp-append-version="true"></script>
+}

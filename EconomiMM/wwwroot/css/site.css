@@ -1,0 +1,75 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.add-new-item {
+    float: right;
+}
+
+th {
+    cursor: pointer;
+}
+
+.modal-backdrop.in {
+    opacity: 0.0 !important;
+}
+
+.filter-button {
+    padding: 0;
+}
+
+.filter-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.size-input {
+    width: 300px;
+    height: 35px;
+}
+
+.copy-btn {
+    height: 35px;
+    width: 45px;
+}
+
+div.scroll-main-window {
+    padding: 4px;
+    width: 700px;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+.sold-tr {
+    background-color: #f0646485;
+}
+
+.joint-material, .flange-material, .liner-material {
+    position: relative;
+}
+
+.add-material-btn {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+a{
+    text-decoration: none
+}
