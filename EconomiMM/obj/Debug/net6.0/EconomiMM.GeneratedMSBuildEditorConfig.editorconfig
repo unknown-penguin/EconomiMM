@@ -20,6 +20,66 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/FlangeMaterials/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/FlangeMaterials/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/FlangeMaterials/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/FlangeMaterials/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/FlangeMaterials/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/EconomiMM/EconomiMM/Views/Materials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/EconomiMM/EconomiMM/Views/Materials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/Materials/Reserve.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXFJlc2VydmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/EconomiMM/EconomiMM/Views/Materials/Sell.cshtml]
@@ -66,6 +130,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/EconomiMM/EconomiMM/Views/PriceCalculator/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VDYWxjdWxhdG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/EconomiMM/EconomiMM/Views/PriceCalculator/MaterialEditor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VDYWxjdWxhdG9yXE1hdGVyaWFsRWRpdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/EconomiMM/EconomiMM/Views/SellHistories/Create.cshtml]

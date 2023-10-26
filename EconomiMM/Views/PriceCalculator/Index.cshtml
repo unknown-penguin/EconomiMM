@@ -1,5 +1,6 @@
 ﻿@model EconomiMM.ViewModels.CalculatorViewModel
 @{
+    ViewData["Title"] = "Калькулятор";
 }
 
 <div class="d-flex flex-row">
@@ -23,28 +24,28 @@
             <div class="d-flex flex-row mx-4">
                 <div class="mx-2">
                     <div class="my-2">
-                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="roundRadio" value="option1">
+                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="roundRadio" value="0">
                         <label class="form-check-label" for="round"> Круглий</label>
                     </div>
                     <div class="my-2">
-                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="rectangularRadio" value="option2">
+                        <input class="form-check-input" type="radio" name="shapeRadioGroup" id="rectangularRadio" value="1">
                         <label class="form-check-label" for="rectangular"> Прямокутний</label>
                     </div>
                 </div>
                 <div class="ms-5">
                     <div class="my-2">
-                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="flangeRadio" value="option1">
+                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="flangeRadio" value="0">
                         <label class="form-check-label" for="flange"> Фланцевий</label>
                     </div>
                     <div class="my-2">
-                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="tapeRadio" value="option2">
+                        <input class="form-check-input" type="radio" name="typeRadioGroup" id="tapeRadio" value="1">
                         <label class="form-check-label" for="tape"> Стрічковий</label>
                     </div>
                 </div>
-                <div class ="ms-5">
-                    <div class="mt-4">
-                        <input type="checkbox" id="insertCheckbox" name="insert" />
-                        <label for="insert"> Вкладиш</label>
+                <div class="ms-5">
+                    <div id="liner-checking" class="mt-4 disabled">
+                        <input type="checkbox" id="linerCheckbox" name="liner" />
+                        <label for="liner"> Вкладиш</label>
                     </div>
                 </div>
             </div>
@@ -53,10 +54,10 @@
 
                 <div class="mx-2">
                     <div class="input-group input-group-sm mb-3 size-input">
-                        @*change it to dependig var*@
-                        <span class="input-group-text" >Довжина 1</span> 
+
+                        <span id="changable-span" class="input-group-text">Довжина 1</span>
                         <input id="joint-length1" type="text" class="form-control">
-                        <span class="input-group-text" >мм</span>
+                        <span class="input-group-text">мм</span>
                     </div>
                     <div class="input-group input-group-sm mb-3 size-input">
                         <span class="input-group-text">Ширина</span>
@@ -65,11 +66,11 @@
                     </div>
                 </div>
 
-                <div class=" d-flex flex-row">
+                <div class="rectangle-sizes d-flex flex-row">
                     <div class="mx-2">
                         <button type="button" class="btn btn-outline-secondary copy-btn">-></button>
                     </div>
-                
+
                     <div class="mx-2">
                         <div class="input-group input-group-sm mb-3 size-input">
                             <span class="input-group-text">Довжина 2 </span>
@@ -100,7 +101,7 @@
                     <div class="mx-2">
                         <div class="input-group input-group-sm mb-3 size-input">
                             <span class="input-group-text">Силікон</span>
-                            <input id ="silicone" type="text" class="form-control" />
+                            <input id="silicone" type="text" class="form-control" />
                             <span class="input-group-text">шт</span>
                         </div>
                     </div>
@@ -119,13 +120,13 @@
 
 
 
-        <div class="addition p-4">
+        <div class="addition disabled p-4">
             <h4> Розміри вкладиша</h4>
             <div class="d-flex flex-row mx-4">
 
                 <div class="mx-2">
                     <div class="input-group input-group-sm mb-3 size-input">
-                        
+
                         <span class="input-group-text">Довжина 1</span>
                         <input id="liner-length1" type="text" class="form-control">
                         <span class="input-group-text" id="inputGroup-sizing-sm">мм</span>
@@ -138,7 +139,7 @@
                 </div>
 
                 <div class="">
-                    
+
 
                     <div class="mx-2">
                         <div class="input-group input-group-sm mb-3 size-input">
@@ -169,19 +170,63 @@
 
     <div class="material-selection mt-5">
         <div>
-            @Html.Partial("_JointMaterialTree")
+            <a asp-action="MaterialEditor" class="btn btn-primary my-4">Редактор Матеріалів</a>
+            
+            <partial name="_JointMaterialTree" render="true" />
+
             <br />
-            @Html.Partial("_FlangeMaterialTree")
+            <partial name="_FlangeMaterialTree" render="true" />
+
             <br />
-            @Html.Partial("_LinerMaterialTree")
+            <partial name="_LinerMaterialTree" render="true" />
+
         </div>
-        <div class="mt-5">
-            <button class="calc-btn btn-dark">Вирахувати</button>
+        
+        <div class="d-flex flex-row m-2">
+            
+            
+            <div class="input-group total-price m-1 mt-4">
+
+                <input type="text" class="form-control total-price-input">
+                <span class="input-group-text">Грн.</span>
+            </div>
+            <div class="m-1 mt-4">
+                <button type="button" class="calc-btn btn btn-secondary">Вирахувати</button>
+            </div>
+            <div class="m-1 mt-4">
+                <button type="button" class="download-btn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#download-Modal">Зберегти</button>
+            </div>
+            <div class="m-1 mt-4">
+                <button type="button" class="save-btn btn btn-success">Скачати</button>
+            </div>
         </div>
     </div>
 
 
 
+</div>
+
+
+
+<div class="modal" id="download-Modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Упс..</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Назад"></button>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="control-label">Ще в розробці</h5>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                <button id="download-button" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#download-Modal">Підтвердити</button>
+            </div>
+
+        </div>
+    </div>
 </div>
 @section scripts{
     <script src="~/js/calculator.js" asp-append-version="true"></script>

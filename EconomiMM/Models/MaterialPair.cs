@@ -1,14 +1,23 @@
 ﻿namespace EconomiMM.Models
 {
     public class SelectedMaterial<T>
-        : Tuple<T, int>
     {
-        public T Material;
-        public int Count;
-        public SelectedMaterial(T item1, int item2) : base(item1, item2)
+        public int Id { get; set; }  
+        public T Material { get; set; }
+        public int Count { get; set; }
+        public SelectedMaterial()
         {
-            Material = item1;
-            Count = item2;
         }
+        public SelectedMaterial(T material, int count)
+        {
+            Material = material;
+            Count = count;
+        }
+    }
+    public class MaterialCountTuple
+    {
+        public int id { get; set; }
+        public int countOfLayers { get; set; }
+
     }
 }

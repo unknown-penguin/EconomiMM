@@ -4,7 +4,7 @@ namespace EconomiMM.Models
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string orderNumber { get; set; }   
 
@@ -16,7 +16,8 @@ namespace EconomiMM.Models
 
         public bool withLiner { get; set; }
 
-        public float mainPartLength1 { get; set; }
+        public float? mainPartLength1 { get; set; }
+        public float? mainPartDiameter { get; set; }
         public float mainPartLength2 { get; set; }
         public float mainPartWidth { get; set; }
 
@@ -34,12 +35,15 @@ namespace EconomiMM.Models
         public float mainPartWorkPrice { get; set; }
         public float linerPartWorkPrice { get; set; }
 
-        public List<SelectedMaterial<ExpansionJointMaterial>> ExpansionJointsMaterials { get; set; }
-        public List<SelectedMaterial<FlangeMaterial>> flangeMaterials { get; set; }
+        public List<SelectedMaterial<ExpansionJointMaterial>>? ExpansionJointsMaterials { get; set; } = new List<SelectedMaterial<ExpansionJointMaterial>>();
+        public List<SelectedMaterial<FlangeMaterial>>? flangeMaterials { get; set; } = new List<SelectedMaterial<FlangeMaterial>>();
         
-        public List<SelectedMaterial<LinerExpansionJointMaterial>> LinerExpansionJointMaterials { get; set; }
+        public List<SelectedMaterial<LinerExpansionJointMaterial>>? LinerExpansionJointMaterials { get; set; } = new List<SelectedMaterial<LinerExpansionJointMaterial>>();
 
-
+        public float TotalPrice { get; set; } = 0;
+        // S
+        
 
     }
+    
 }

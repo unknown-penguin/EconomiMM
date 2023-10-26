@@ -52,6 +52,10 @@ namespace EconomiMM.Controllers
 
             return View(calculatorViewModel);
         }
+        public IActionResult MaterialEditor()
+        {
+            return View();
+        }
 
     }
 }

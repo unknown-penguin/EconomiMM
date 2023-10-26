@@ -31,7 +31,7 @@ namespace EconomiMM.Hubs
         {
 
 
-            var materialType = await dbContext.MaterialType.ToListAsync();
+            List<MaterialType> materialType = await dbContext.MaterialType.ToListAsync();
             var connectionId = Context.ConnectionId;
             await Clients.Client(connectionId).SendAsync("RecievedMaterialTypeInfo", materialType);
         }

@@ -61,7 +61,7 @@ div.scroll-main-window {
     background-color: #f0646485;
 }
 
-.joint-material, .flange-material, .liner-material {
+.joint-material-window, .flange-material-window, .liner-material-window {
     position: relative;
 }
 
@@ -73,3 +73,25 @@ div.scroll-main-window {
 a{
     text-decoration: none
 }
+.layer-count {
+    margin: 3px;
+    width: 30px;
+    height:25px;
+
+}
+.selected-material {
+    position: relative;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.modal-dialog {
+    max-width: 700px;
+    width:700px;
+    margin: 1.75rem auto;
+}
+.total-price{
+    max-width:200px;
+}
+

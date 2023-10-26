@@ -2,22 +2,31 @@
 @using EconomiMM.Enum;
 @{
 }
-<div class="liner-material border border-1 scroll-main-window">
-    <div class="liner-material-inner">
-        <a class="toggle-btn link-dark"> Внутрішня частина</a>
-        <br />
-    </div>
-    <div class="liner-material-outer">
-        <a class="toggle-btn link-dark"> Зовнішня частина</a>
-        <br />
+
+
+<div class="liner-material-window disabled">
+    <div class="liner-material border border-1 scroll-main-window">
+        <div class="liner-material-inner">
+            <a class="toggle-btn link-dark"> Внутрішня частина</a>
+            <br />
+        </div>
+        <div class="liner-material-outer">
+            <a class="toggle-btn link-dark"> Зовнішня частина</a>
+            <br />
+        </div>
     </div>
     <button type="button" class="btn btn-light add-material-btn" data-bs-toggle="modal" data-bs-target="#liner-material-Modal">
         <img class="filter-icon" src="~/img/filter.png" />
     </button>
 
 
-
 </div>
+
+
+
+
+
+
 <div class="modal" id="liner-material-Modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -28,7 +37,7 @@
 
             <div class="modal-body">
                 <label class="control-label">Виробник</label>
-                <div class="liner-material-modal border border-1 scroll">
+                <div class="liner-material-modal p-2 border border-1 scroll">
                     <a id="inner-liner-materials" class="toggle-btn text-dark">Внутрішня частина</a>
                     <div id="inner-liner-materials-list">
                         @foreach (var materialType in Model.innerLinerMaterialTypes)
@@ -40,9 +49,12 @@
                                     @if (material.PartOfLiner == LinerParts.Inner && material.Type == materialType)
                                     {
                                         <div>
-                                            <input class="form-check-input" type="checkbox" value="" id="@material.normilized_name">
-                                            <label class="form-check-label" for="@material.normilized_name">
-                                                @material.Name  -----   @material.Price
+                                            <input class="form-check-input" type="checkbox" value="" id="material-@material.Id">
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Name
+                                            </label>
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Price грн/м^3
                                             </label>
                                             <br>
                                         </div>
@@ -66,9 +78,12 @@
                                     @if (material.PartOfLiner == LinerParts.Outer && material.Type == materialType)
                                     {
                                         <div>
-                                            <input class="form-check-input" type="checkbox" value="" id="@material.normilized_name">
-                                            <label class="form-check-label" for="@material.normilized_name">
-                                                @material.Name  -----   @material.Price
+                                            <input class="form-check-input" type="checkbox" value="" id="material-@material.Id">
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Name
+                                            </label>
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Price грн/м^2
                                             </label>
                                             <br>
                                         </div>
@@ -83,7 +98,7 @@
 
                 </div>
 
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>

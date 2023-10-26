@@ -5,7 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public string normilized_name { get; set; }
         public ExpansionJointMaterialType Type { get; set; }
 
         public float Thickness { get; set; }

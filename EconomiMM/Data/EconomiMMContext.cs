@@ -37,6 +37,7 @@ namespace EconomiMM.Data
         public DbSet<FlangeMaterial> FlangeMaterials { get; set; }
 
         public DbSet<LinerExpansionJointMaterial> LinerMaterials { get; set; }
+        public DbSet<Product> Orders { get; set; }
 
     }
 }
