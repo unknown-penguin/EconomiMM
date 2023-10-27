@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CGZ8fghrmbBmnpzqbuchwae+GsK4eW0m1xt1STWdS30=",
+  "Hash": "fxpcAc+p5di0nRpPsliDH966Ry1xHL4kYu2DefHwZdU=",
   "Source": "EconomiMM",
   "BasePath": "_content/EconomiMM",
   "Mode": "Default",
@@ -1205,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\EconomiMM\\EconomiMM\\wwwroot\\js\\syncTypeDataSelection.js",
+      "SourceId": "EconomiMM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\EconomiMM\\EconomiMM\\wwwroot\\",
+      "BasePath": "_content/EconomiMM",
+      "RelativePath": "js/syncTypeDataSelection.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\syncTypeDataSelection.js"
     },
     {
       "Identity": "D:\\EconomiMM\\EconomiMM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EconomiMM.Data;
 using EconomiMM.Models;
+using EconomiMM.ViewModels;
 
 namespace EconomiMM.Controllers
 {
@@ -23,51 +24,45 @@ namespace EconomiMM.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.LinerMaterials != null ? 
-                          View(await _context.LinerMaterials.ToListAsync()) :
+                          View(await _context.LinerMaterials.Include(t => t.Type).ToListAsync()) :
                           Problem("Entity set 'EconomiMMContext.LinerMaterials'  is null.");
-        }
-
-        // GET: LinerExpansionJointMaterials/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.LinerMaterials == null)
-            {
-                return NotFound();
-            }
-
-            var linerExpansionJointMaterial = await _context.LinerMaterials
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (linerExpansionJointMaterial == null)
-            {
-                return NotFound();
-            }
-
-            return View(linerExpansionJointMaterial);
         }
 
         // GET: LinerExpansionJointMaterials/Create
         public IActionResult Create()
         {
-            return View();
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            var viewmodel = new CalcMaterialViewModel<LinerExpansionJointMaterial>
+            {
+                Material = new LinerExpansionJointMaterial(),
+                MaterialTypes = new SelectList(materialTypesList, nameof(ExpansionJointMaterialType.Id), nameof(ExpansionJointMaterialType.Name))
+            };
+            return View(viewmodel);
         }
 
-        // POST: LinerExpansionJointMaterials/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: FlangeMaterials/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Thickness,Price,PartOfLiner")] LinerExpansionJointMaterial linerExpansionJointMaterial)
+        public async Task<IActionResult> Create(CalcMaterialViewModel<LinerExpansionJointMaterial> viewmodel)
         {
+
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            viewmodel.MaterialTypes = new SelectList(materialTypesList, nameof(LinerExpansionJointMaterial.Id), nameof(LinerExpansionJointMaterial.Name));
+            var selectedType = viewmodel.Material.Type.Id;
+            viewmodel.Material.Type = _context.JointMaterialTypes.Where(m => m.Id == selectedType).First();
             if (ModelState.IsValid)
             {
-                _context.Add(linerExpansionJointMaterial);
+                _context.Add(viewmodel.Material);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(linerExpansionJointMaterial);
+
+            return View(viewmodel);
         }
 
+
         // GET: LinerExpansionJointMaterials/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.LinerMaterials == null)
@@ -75,22 +70,31 @@ namespace EconomiMM.Controllers
                 return NotFound();
             }
 
-            var linerExpansionJointMaterial = await _context.LinerMaterials.FindAsync(id);
-            if (linerExpansionJointMaterial == null)
+            var expansionJointMaterial = await _context.LinerMaterials
+                .Include(ejm => ejm.Type)
+                .FirstOrDefaultAsync(ejm => ejm.Id == id);
+
+            if (expansionJointMaterial == null)
             {
                 return NotFound();
             }
-            return View(linerExpansionJointMaterial);
+
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            var jointMaterialViewModel = new CalcMaterialViewModel<LinerExpansionJointMaterial>
+            {
+                Material = expansionJointMaterial,
+                MaterialTypes = new SelectList(materialTypesList, nameof(ExpansionJointMaterialType.Id), nameof(ExpansionJointMaterialType.Name))
+            };
+
+            return View(jointMaterialViewModel);
         }
 
-        // POST: LinerExpansionJointMaterials/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: FlangeMaterials/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Thickness,Price,PartOfLiner")] LinerExpansionJointMaterial linerExpansionJointMaterial)
+        public async Task<IActionResult> Edit(int id, CalcMaterialViewModel<LinerExpansionJointMaterial> viewmodel)
         {
-            if (id != linerExpansionJointMaterial.Id)
+            if (id != viewmodel.Material.Id)
             {
                 return NotFound();
             }
@@ -99,12 +103,12 @@ namespace EconomiMM.Controllers
             {
                 try
                 {
-                    _context.Update(linerExpansionJointMaterial);
+                    _context.Update(viewmodel.Material);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LinerExpansionJointMaterialExists(linerExpansionJointMaterial.Id))
+                    if (!LinerExpansionJointMaterialExists(viewmodel.Material.Id))
                     {
                         return NotFound();
                     }
@@ -115,7 +119,7 @@ namespace EconomiMM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(linerExpansionJointMaterial);
+            return View(viewmodel);
         }
 
         // GET: LinerExpansionJointMaterials/Delete/5
@@ -126,7 +130,7 @@ namespace EconomiMM.Controllers
                 return NotFound();
             }
 
-            var linerExpansionJointMaterial = await _context.LinerMaterials
+            var linerExpansionJointMaterial = await _context.LinerMaterials.Include(t => t.Type)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (linerExpansionJointMaterial == null)
             {

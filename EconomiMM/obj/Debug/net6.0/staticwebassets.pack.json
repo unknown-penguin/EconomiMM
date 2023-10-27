@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\EconomiMM\\EconomiMM\\wwwroot\\js\\syncTypeDataSelection.js",
+      "PackagePath": "staticwebassets\\js\\syncTypeDataSelection.js"
+    },
+    {
       "Id": "D:\\EconomiMM\\EconomiMM\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

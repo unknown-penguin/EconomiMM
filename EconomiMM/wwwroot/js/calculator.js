@@ -88,14 +88,23 @@ function appendSelectedMaterial(material, appendDiv) {
 
     if (!$(appendDiv).find('#materialType-' + material['type']['id']).find('#material-' + material['id']).length)//check if material not exist
     {
+        var priceUnits = "грн/м^2"
+
+        if (material.hasOwnProperty('partOfLiner') && material['partOfLiner'] == 0)
+            priceUnits = "грн/м^3"
+
         $(appendDiv + " #materialType-" + material['type']['id']).append(
             "<div id=\"material-" + material['id'] + "\" class=\"input-group-sm d-flex flex-row selected-material\">" +
-            /*"<input class= \"form-check-input\" type = \"checkbox\" id=\"material-" + material['id'] + "\" >" +*/
             "<input type=\"text\" class=\"form-control layer-count\" value = \"1\" aria-label=\"Small>" +
             "<label class=\"form-check-label\" for=" + material['id'] + ">" +
             "x " + material['name'] +
             "</label>" +
-
+            "<label class=\"form-check-label mx-2\" for=\"material-" + material['id'] + "\">" +
+            material['thickness'] + "мм"+
+            "</label>" +
+            "<label class=\"form-check-label mx-2\" for=\"material-" + material['id'] + "\">" +
+            material['price'] + priceUnits+
+                "</label>" +
             "<br>" +
             "</div>"
         );
@@ -166,7 +175,7 @@ function getUsedMaterials(containerSelector) {
 
         var selMaterialObj =
         {
-            'id' : parseInt(id),
+            'id': parseInt(id),
             'countOfLayers': parseInt(count)
         }
         usedMaterials.push(selMaterialObj);
@@ -183,7 +192,7 @@ function parseSetting(inputId) {
     else {
         return settingValue;
     }
-    
+
 }
 function parseShapeRadio() {
     var roundRadio = $('#roundRadio');
@@ -211,7 +220,7 @@ function parseTypeRadio() {
 }
 function parseLinerCheckbox() {
     var checbox = $('#linerCheckbox');
-    
+
     if (checbox.is(':checked')) {
         return 1;
     }
@@ -239,12 +248,12 @@ function getSettings() {
     var jointType = parseTypeRadio();
     var withLiner = parseLinerCheckbox();
 
-    
+
     var obj = {
         'orderNumber': orderNumber,
         'temperature': orderTemperature,
         //'mainPartLength1': parseFloat(jointLength1),
-        'mainPartLength2': parseFloat(jointLength2)/1000,
+        'mainPartLength2': parseFloat(jointLength2) / 1000,
         'mainPartWidth': parseFloat(jointWidth) / 1000,
         'flangeWidth': parseFloat(flangeWidth) / 1000,
         'koef': parseFloat(materialKoef),

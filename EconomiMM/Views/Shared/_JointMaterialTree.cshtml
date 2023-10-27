@@ -21,7 +21,7 @@
 
             <div class="modal-body">
                 <label class="control-label">Виробник</label>
-                <div class="joint-material-modal p-2 border border-1 scroll">
+                <div class="joint-material-modal p-2 border border-1 scroll-modal-window">
                     @foreach (var materialType in Model.jointMaterialTypes)
                     {
                         <a id="@materialType.Id" class="toggle-btn link-dark">@materialType.Name</a>
@@ -34,6 +34,9 @@
                                         <input class="form-check-input" type="checkbox" value="" id="material-@material.Id">
                                         <label class="form-check-label mx-2" for="material-@material.Id">
                                             @material.Name
+                                        </label>
+                                        <label class="form-check-label mx-2" for="material-@material.Id">
+                                            @material.Thickness мм
                                         </label>
                                         <label class="form-check-label mx-2" for="material-@material.Id">
                                             @material.Price грн/м^2

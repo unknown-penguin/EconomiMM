@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EconomiMM.Data;
 using EconomiMM.Models;
+using EconomiMM.ViewModels;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace EconomiMM.Controllers
 {
@@ -22,52 +24,45 @@ namespace EconomiMM.Controllers
         // GET: ExpansionJointMaterials
         public async Task<IActionResult> Index()
         {
-              return _context.ExpansionJointsMaterials != null ? 
-                          View(await _context.ExpansionJointsMaterials.ToListAsync()) :
-                          Problem("Entity set 'EconomiMMContext.ExpansionJointsMaterials'  is null.");
-        }
-
-        // GET: ExpansionJointMaterials/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.ExpansionJointsMaterials == null)
-            {
-                return NotFound();
-            }
-
-            var expansionJointMaterial = await _context.ExpansionJointsMaterials
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (expansionJointMaterial == null)
-            {
-                return NotFound();
-            }
-
-            return View(expansionJointMaterial);
+            return _context.ExpansionJointsMaterials != null ?
+                        View(await _context.ExpansionJointsMaterials.Include(t => t.Type).ToListAsync()) :
+                        Problem("Entity set 'EconomiMMContext.ExpansionJointsMaterials'  is null.");
         }
 
         // GET: ExpansionJointMaterials/Create
         public IActionResult Create()
         {
-            return View();
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            var viewmodel = new CalcMaterialViewModel<ExpansionJointMaterial>
+            {
+                Material = new ExpansionJointMaterial(),
+                MaterialTypes = new SelectList(materialTypesList, nameof(ExpansionJointMaterialType.Id), nameof(ExpansionJointMaterialType.Name))
+            };
+            return View(viewmodel);
         }
 
         // POST: ExpansionJointMaterials/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Thickness,Price")] ExpansionJointMaterial expansionJointMaterial)
+        public async Task<IActionResult> Create(CalcMaterialViewModel<ExpansionJointMaterial> viewmodel)
         {
+
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            viewmodel.MaterialTypes = new SelectList(materialTypesList, nameof(ExpansionJointMaterialType.Id), nameof(ExpansionJointMaterialType.Name));
+            var selectedType = viewmodel.Material.Type.Id;
+            viewmodel.Material.Type = _context.JointMaterialTypes.Where(m => m.Id == selectedType).First();
             if (ModelState.IsValid)
             {
-                _context.Add(expansionJointMaterial);
+                _context.Add(viewmodel.Material);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(expansionJointMaterial);
+
+            return View(viewmodel);
         }
 
         // GET: ExpansionJointMaterials/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ExpansionJointsMaterials == null)
@@ -75,22 +70,31 @@ namespace EconomiMM.Controllers
                 return NotFound();
             }
 
-            var expansionJointMaterial = await _context.ExpansionJointsMaterials.FindAsync(id);
+            var expansionJointMaterial = await _context.ExpansionJointsMaterials
+                .Include(ejm => ejm.Type)
+                .FirstOrDefaultAsync(ejm => ejm.Id == id);
+
             if (expansionJointMaterial == null)
             {
                 return NotFound();
             }
-            return View(expansionJointMaterial);
+
+            var materialTypesList = _context.JointMaterialTypes.ToList();
+            var jointMaterialViewModel = new CalcMaterialViewModel<ExpansionJointMaterial>
+            {
+                Material = expansionJointMaterial,
+                MaterialTypes = new SelectList(materialTypesList, nameof(ExpansionJointMaterialType.Id), nameof(ExpansionJointMaterialType.Name))
+            };
+            
+            return View(jointMaterialViewModel);
         }
 
         // POST: ExpansionJointMaterials/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Thickness,Price")] ExpansionJointMaterial expansionJointMaterial)
+        public async Task<IActionResult> Edit(int id, CalcMaterialViewModel<ExpansionJointMaterial> viewmodel)
         {
-            if (id != expansionJointMaterial.Id)
+            if (id != viewmodel.Material.Id)
             {
                 return NotFound();
             }
@@ -99,12 +103,12 @@ namespace EconomiMM.Controllers
             {
                 try
                 {
-                    _context.Update(expansionJointMaterial);
+                    _context.Update(viewmodel.Material);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ExpansionJointMaterialExists(expansionJointMaterial.Id))
+                    if (!ExpansionJointMaterialExists(viewmodel.Material.Id))
                     {
                         return NotFound();
                     }
@@ -115,7 +119,7 @@ namespace EconomiMM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(expansionJointMaterial);
+            return View(viewmodel);
         }
 
         // GET: ExpansionJointMaterials/Delete/5
@@ -126,7 +130,7 @@ namespace EconomiMM.Controllers
                 return NotFound();
             }
 
-            var expansionJointMaterial = await _context.ExpansionJointsMaterials
+            var expansionJointMaterial = await _context.ExpansionJointsMaterials.Include(t => t.Type)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (expansionJointMaterial == null)
             {
@@ -150,14 +154,14 @@ namespace EconomiMM.Controllers
             {
                 _context.ExpansionJointsMaterials.Remove(expansionJointMaterial);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ExpansionJointMaterialExists(int id)
         {
-          return (_context.ExpansionJointsMaterials?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ExpansionJointsMaterials?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

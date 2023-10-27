@@ -37,7 +37,7 @@
 
             <div class="modal-body">
                 <label class="control-label">Виробник</label>
-                <div class="liner-material-modal p-2 border border-1 scroll">
+                <div class="liner-material-modal p-2 border border-1 scroll-modal-window">
                     <a id="inner-liner-materials" class="toggle-btn text-dark">Внутрішня частина</a>
                     <div id="inner-liner-materials-list">
                         @foreach (var materialType in Model.innerLinerMaterialTypes)
@@ -52,6 +52,9 @@
                                             <input class="form-check-input" type="checkbox" value="" id="material-@material.Id">
                                             <label class="form-check-label mx-2" for="material-@material.Id">
                                                 @material.Name
+                                            </label>
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Thickness мм
                                             </label>
                                             <label class="form-check-label mx-2" for="material-@material.Id">
                                                 @material.Price грн/м^3
@@ -81,6 +84,9 @@
                                             <input class="form-check-input" type="checkbox" value="" id="material-@material.Id">
                                             <label class="form-check-label mx-2" for="material-@material.Id">
                                                 @material.Name
+                                            </label>
+                                            <label class="form-check-label mx-2" for="material-@material.Id">
+                                                @material.Thickness мм
                                             </label>
                                             <label class="form-check-label mx-2" for="material-@material.Id">
                                                 @material.Price грн/м^2
