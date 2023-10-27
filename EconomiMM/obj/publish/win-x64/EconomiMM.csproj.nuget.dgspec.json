@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\project\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {}
+    "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {}
   },
   "projects": {
-    "F:\\project\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {
+    "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\project\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+        "projectUniqueName": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
         "projectName": "EconomiMM",
-        "projectPath": "F:\\project\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+        "projectPath": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
         "packagesPath": "C:\\Users\\Xemix\\.nuget\\packages\\",
-        "outputPath": "F:\\project\\EconomiMM\\EconomiMM\\obj\\publish\\win-x64\\",
+        "outputPath": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,10 +45,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNet.SignalR": {
-              "target": "Package",
-              "version": "[2.4.3, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.15, )"
@@ -63,13 +59,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.23, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.23, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -94,10 +94,6 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
               "version": "[6.0.16, 6.0.16]"
             },
             {

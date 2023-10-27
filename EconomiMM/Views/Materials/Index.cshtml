@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Список матеріалів</h1>
+<h1>@ViewData["NameParameter"] Список матеріалів</h1>
 
 <p>
     <a asp-action="Create">Додати новий матеріал</a>
@@ -14,10 +14,13 @@
         <tr>
             <th>
                 Назва
+                <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#nameModal">
+                    <img class="filter-icon" src="~/img/filter.png" />
+                </button>
             </th>
             <th>
                 Товщина
-                <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#thicknessModal">
                     <img class="filter-icon" src="~/img/filter.png"/>
                 </button>
 
@@ -75,11 +78,11 @@
     </tbody>
 </table>
 
-<div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="thicknessModal" aria-labelledby="thicknessModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Фільтр товщин</h5>
+                <h5 class="modal-title" id="thicknessModalLabel">Фільтр товщин</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Назад"></button>
             </div>
             <form method="GET" asp-controller="Materials" asp-action="Index">
@@ -95,3 +98,68 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="nameModal" aria-labelledby="nameModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nameModalLabel">Фільтр по назві</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Назад"></button>
+            </div>
+            <form method="GET" asp-controller="Materials" asp-action="Index">
+                <div class="modal-body">
+                    <label class="control-label">Назва</label>
+                    <select id="name-select" class="form-control" name="name"></select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                    <button id="thickness-filter-button" type="submit" class="btn btn-primary">Підтвердити</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        "use strict";
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/materialHub").build();
+
+        connection.start().then(function () {
+            console.log('connected to hub');
+            connection.invoke("GetAllMaterialTypes").catch(function (err) {
+                return console.error(err.toString());
+            })
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+
+
+        connection.on("RecievedMaterialTypeInfo", function (materialTypeDB) {
+            console.log("out");
+
+
+            materialTypeDB.forEach(function (materialType) {
+                var option = $('<option>', {
+                    value: materialType['name'],
+                    text: materialType['name']
+                });
+
+                if (materialType['name'] === "@Html.Raw(ViewData["Name"].ToString())") {
+                    option.attr('selected', 'selected');
+                }
+
+                $('#name-select').append(option);
+
+
+
+
+            });
+
+        });
+    </script>
+
+    
+}

@@ -19,23 +19,33 @@ namespace EconomiMM.Controllers
             _context = context;
         }
 
-        // GET: Materials
-        public async Task<IActionResult> Index(float thickness)
+        // GET: Materials (default route)
+        [HttpGet]
+        public async Task<IActionResult> Index(float? thickness, string name)
         {
-            List<Material>? materials = null;
-            if (thickness > 0)
+            IQueryable<Material> materialsQuery = _context.Material.OrderBy(t => t.Name);
+            ViewData["Thickness"] = 0;
+            ViewData["Name"] = "";
+            if (thickness.HasValue && thickness > 0)
             {
-                materials = await _context.Material.Where(m => m.Thickness == thickness).ToListAsync();
+                ViewData["Thickness"] = thickness;
+                materialsQuery = materialsQuery.Where(m => m.Thickness == thickness);
             }
-            else
-            {
-                materials = await _context.Material.ToListAsync();
 
+            if (!string.IsNullOrEmpty(name))
+            {
+                ViewData["Name"] = name;
+                materialsQuery = materialsQuery.Where(m => m.Name == name);
             }
+
+            List<Material> materials = await materialsQuery.ToListAsync();
+
             return _context.Material != null ?
-                        View(materials) :
-                        Problem("Entity set 'EconomiMMContext.Material'  is null.");
+                View(materials) :
+                Problem("Entity set 'EconomiMMContext.Material' is null.");
         }
+
+
 
         // GET: Materials/Details/5
         public async Task<IActionResult> Details(int? id)
