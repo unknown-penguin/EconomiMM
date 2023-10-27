@@ -56,7 +56,10 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
                 "</th>"+
                 "<th>"+
                     "Товщина"+
-                "</th>"+
+                "</th>" +
+                "<th>" +
+                    "Розміри" +
+                "</th>" +
                 "<th>"+
                     "Ціна"+
                 "</th>"+
@@ -88,6 +91,9 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
             "</td>" +
             "<td class=thickness>" +
             material['thickness'] +
+            "</td>" +
+            "<td class=size>" +
+            material['size'] +
             "</td>" +
             "<td class=price>" +
             material['price'] +

@@ -66,7 +66,7 @@ namespace EconomiMM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Thickness,Count,Reserved,Price")] Material material)
+        public async Task<IActionResult> Create([Bind("Id,Name,Thickness,Size,Count,Reserved,Price")] Material material)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace EconomiMM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Thickness,Count,Reserved,Price")] Material material)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Thickness,Size,Count,Reserved,Price")] Material material)
         {
             if (id != material.Id)
             {
@@ -189,7 +189,7 @@ namespace EconomiMM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Sell(int id, [Bind("Id,Name,Thickness,Count,Reserved,Price,Sold")] Material material)
+        public async Task<IActionResult> Sell(int id, [Bind("Id,Name,Thickness,Size,Count,Reserved,Price,Sold")] Material material)
         {
             if (id != material.Id)
             {

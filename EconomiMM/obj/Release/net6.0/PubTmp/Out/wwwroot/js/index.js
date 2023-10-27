@@ -38,7 +38,9 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
                         "<th>"+
                             "Товщина"+
                         "</th>"+
-                       
+                        "<th>" +
+                            "Розміри" +
+                        "</th>" +
                         "<th>"+
                             "Ціна"+
                         "</th>"+
@@ -50,7 +52,7 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
                             "Зарезервовано" +
                         "</th>" +
                         "<th>" +
-                            "Продано" +
+                            "Продаж" +
                         "</th>" +
                     "</tr>"+
                 "</thead>"+
@@ -64,24 +66,27 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
     materialDB.forEach(function (material) {
         $("<tr id=" + material['name'] + "-" + material['thickness'] + ">" +
             "<td>" +
-                material['name'] +
+            material['name'] +
             "</td>" +
             "<td>" +
-                material['thickness'] +
+            material['thickness'] +
             "</td>" +
             "<td>" +
-                material['price'] +
+            (material['size'] != null ? material['size'] : "Не задано") +
             "</td>" +
             "<td>" +
-                material['count'] +
+            material['price'] +
             "</td>" +
             "<td>" +
-                material['reserved'] +
+            material['count'] +
             "</td>" +
             "<td>" +
-                material['sold'] +
+            material['reserved'] +
             "</td>" +
-          "</tr>").insertAfter("#" + materialDB[0]['name'] + "-list" + " tbody");
+            "<td>" +
+            "<a href=\"/Materials/Sell?id=" + material['id'] + "\">Продати</a> " +
+            "</td>" +
+            "</tr>").insertAfter("#" + materialDB[0]['name'] + "-list" + " tbody");
         
     });
    

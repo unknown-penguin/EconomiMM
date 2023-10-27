@@ -167,6 +167,9 @@ namespace EconomiMM.Migrations
                     b.Property<int>("Reserved")
                         .HasColumnType("int");
 
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Sold")
                         .HasColumnType("int");
 
