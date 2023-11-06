@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Збережені замовлення</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -27,45 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.withLiner)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mainPartLength1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mainPartDiameter)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mainPartLength2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mainPartWidth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.flangeWidth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.koef)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.siliconeTubes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.linerPartLength)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.linerPartHeight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.linerPartWidth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.linerPartBindingWidth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mainPartWorkPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.linerPartWorkPrice)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
@@ -90,45 +49,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.withLiner)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mainPartLength1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mainPartDiameter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mainPartLength2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mainPartWidth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.flangeWidth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.koef)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.siliconeTubes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.linerPartLength)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.linerPartHeight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.linerPartWidth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.linerPartBindingWidth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mainPartWorkPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.linerPartWorkPrice)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.TotalPrice)
             </td>

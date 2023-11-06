@@ -15,10 +15,22 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Назва</label>
-                <select id="name-select" asp-for="Name" class="form-control form-select" >
+                <select id="name-select" asp-for="Name" class="form-control form-select">
                 </select>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            <label for="colorPicker">Choose a color:</label>
+            <input type="color" id="colorPicker" name="colorPicker" value="#ff0000">
+
+            @*<script>
+                const colorPicker = document.getElementById("colorPicker");
+
+                colorPicker.addEventListener("input", function () {
+                    const selectedColor = colorPicker.value;
+                    console.log("Selected color: " + selectedColor);
+                    // You can use the selected color value as needed
+                });
+            </script>*@
             <div class="form-group">
                 <label asp-for="Thickness" class="control-label">Товщина</label>
                 <input asp-for="Thickness" class="form-control" />
