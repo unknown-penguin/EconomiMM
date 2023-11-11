@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-
+using System.Text.Json.Serialization;
 namespace EconomiMM.Models
 {
     public class Color
@@ -9,8 +9,8 @@ namespace EconomiMM.Models
         public string Name { get; set; }
 
         public string ColorHex { get; set; }
-
-        public List<Material>? Materials { get; set; }
-
+        [JsonIgnore]
+        public List<Material>? Materials { get; set; } = new List<Material>();
+        public List<ColorMaterial>? ColorMaterials { get; set; }
     }
 }

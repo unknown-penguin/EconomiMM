@@ -22,7 +22,6 @@ namespace EconomiMM.Controllers
         }
 
         // GET: MaterialTypes
-        [Authorize]
         public async Task<IActionResult> Index(string manufacturer)
         {
             List<MaterialType>? materials = null;
@@ -53,7 +52,7 @@ namespace EconomiMM.Controllers
                         View(materialTypesVM) :
                         Problem("Entity set 'EconomiMMContext.MaterialType'  is null.");
         }
-        [Authorize]
+        
         // GET: MaterialTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -71,7 +70,7 @@ namespace EconomiMM.Controllers
 
             return View(materialType);
         }
-        [Authorize]
+        
         // GET: MaterialTypes/Create
         public IActionResult Create()
         {
@@ -93,7 +92,7 @@ namespace EconomiMM.Controllers
             }
             return View(materialType);
         }
-        [Authorize]
+        
         // GET: MaterialTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -145,7 +144,7 @@ namespace EconomiMM.Controllers
             }
             return View(materialType);
         }
-        [Authorize]
+        
         // GET: MaterialTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

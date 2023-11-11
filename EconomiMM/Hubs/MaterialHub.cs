@@ -17,12 +17,11 @@ namespace EconomiMM.Hubs
 
         public async Task SendMaterial(string name)
         {
-            if (name == null || dbContext.Material == null)
-            {
-               //fill it
-            }
-
-            var materials = await dbContext.Material.Where(m => m.Name == name).ToListAsync();
+            var materials = await dbContext.Material
+                .Where(m => m.Name == name)
+                .AsNoTracking()
+                .Include(mat => mat.Colors)
+                .ToListAsync();
             var connectionId = Context.ConnectionId;
             await Clients.Client(connectionId).SendAsync("RecievedMaterialInfo", materials);
         }

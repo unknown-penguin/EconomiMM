@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EconomiMM.Data;
 using EconomiMM.Models;
+using EconomiMM.ViewModels;
 
 namespace EconomiMM.Controllers
 {
@@ -19,11 +20,11 @@ namespace EconomiMM.Controllers
             _context = context;
         }
 
-        // GET: Materials (default route)
+        // GET: Materials
         [HttpGet]
         public async Task<IActionResult> Index(float? thickness, string name)
         {
-            IQueryable<Material> materialsQuery = _context.Material.OrderBy(t => t.Name);
+            IQueryable<Material> materialsQuery = _context.Material.Include(c =>c.Colors).OrderBy(t => t.Name);
             ViewData["Thickness"] = 0;
             ViewData["Name"] = "";
             if (thickness.HasValue && thickness > 0)
@@ -45,8 +46,6 @@ namespace EconomiMM.Controllers
                 Problem("Entity set 'EconomiMMContext.Material' is null.");
         }
 
-
-
         // GET: Materials/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,9 +65,32 @@ namespace EconomiMM.Controllers
         }
 
         // GET: Materials/Create
-        public IActionResult Create()
+        [HttpGet]
+        public async Task<IActionResult> Create(string? materialType)
         {
-            return View();
+            var material = new Material();
+            if (string.IsNullOrEmpty(materialType))
+            {
+                material.Name = string.Empty;
+            }
+            else
+            {
+                material.Name = materialType;
+            }
+
+            
+
+            var colors = await _context.Colors.ToListAsync();
+            string selectedColors = "";
+
+            var editMaterialViewModel = new EditMaterialViewModel
+            {
+                Material = material,
+                SelectedColorsId = selectedColors,
+                Colors = colors
+            };
+
+            return View(editMaterialViewModel);
         }
 
         // POST: Materials/Create
@@ -76,55 +98,34 @@ namespace EconomiMM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Thickness,Size,Count,Reserved,Price")] Material material)
+        public async Task<IActionResult> Create(EditMaterialViewModel editMaterialViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(material);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), "MaterialTypes");
-            }
-            return View(material);
-        }
-
-        // GET: Materials/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Material == null)
-            {
-                return NotFound();
-            }
-
-            var material = await _context.Material.FindAsync(id);
-            if (material == null)
-            {
-                return NotFound();
-            }
-            return View(material);
-        }
-
-        // POST: Materials/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Thickness,Size,Count,Reserved,Price")] Material material)
-        {
-            if (id != material.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(material);
+                    // Update the Material entity with the new Color associations
+                    var material = editMaterialViewModel.Material;
+
+                    var selectedColor = GetSelectedColorById(editMaterialViewModel.SelectedColorsId);
+
+                    // Add new associations based on selectedColor
+                    foreach (var color in selectedColor)
+                    {
+                        _context.Colors.Attach(color);
+                        if (color != null)
+                        {
+                            material.Colors.Add(color);
+
+                        }
+                    }
+                    _context.Add(material);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MaterialExists(material.Id))
+                    if (!MaterialExists(editMaterialViewModel.Material.Id))
                     {
                         return NotFound();
                     }
@@ -133,9 +134,93 @@ namespace EconomiMM.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(material);
+
+            return View(editMaterialViewModel);
+        }
+
+        // GET: Materials/Edit/5
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || _context.Material == null)
+            {
+                return NotFound();
+            }
+
+            var material = await _context.Material.Include(m => m.Colors).FirstOrDefaultAsync(m => m.Id == id);
+            var colors = await _context.Colors.ToListAsync();
+            if (material == null)
+            {
+                return NotFound();
+            }
+            string selectedColors = "";
+            foreach (var color in material.Colors)
+            {
+                selectedColors += color.Id.ToString() + ",";
+            }
+            var editMaterialViewModel = new EditMaterialViewModel
+            {
+                Material = material,
+
+                SelectedColorsId = selectedColors,
+                Colors = colors
+            };
+            return View(editMaterialViewModel);
+        }
+
+        // POST: Materials/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, EditMaterialViewModel editMaterialViewModel)
+        {
+            if (id != editMaterialViewModel.Material.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Update the Material entity with the new Color associations
+                    var material = _context.Material.Include(m => m.Colors).Where(m => m.Id == editMaterialViewModel.Material.Id).First();
+                    
+                    var selectedColor = GetSelectedColorById(editMaterialViewModel.SelectedColorsId);
+
+                    // Clear existing associations
+                    material.Colors.Clear();
+
+                    // Add new associations based on selectedColor
+                    foreach (var color in selectedColor)
+                    {
+                        _context.Colors.Attach(color);
+                        if (color != null && !material.Colors.Contains(color))
+                        {
+                            material.Colors.Add(color);
+
+                        }
+                    }
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MaterialExists(editMaterialViewModel.Material.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return View(editMaterialViewModel);
         }
 
         // GET: Materials/Delete/5
@@ -250,6 +335,30 @@ namespace EconomiMM.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(material);
+        }
+
+        private List<Color> GetSelectedColorById(string? ids)
+        {
+            if(ids != null && ids.EndsWith(","))
+            {
+                ids = ids.Trim(); // Remove leading and trailing whitespace
+                ids = ids.Substring(0, ids.Length - 1); // Remove trailing comma
+                List<int> idsList = ids.
+                Split(',').
+                Select(int.Parse).
+                ToList();
+
+                List<Color> colors = new List<Color>();
+                foreach (int id in idsList)
+                {
+                    var selectedColor = _context.Colors.FirstOrDefault(c => c.Id == id);
+                    colors.Add(selectedColor);
+                }
+                return colors;
+            }
+            return new List<Color>();
+
+
         }
     }
 }

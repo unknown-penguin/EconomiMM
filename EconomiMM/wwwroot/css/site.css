@@ -16,7 +16,18 @@ html {
 body {
     margin-bottom: 60px;
 }
+.material-table
+{
+    text-align:center;
+}
+.color-cell {
+    display:flex;
 
+}
+.size-cell {
+    word-wrap: break-word;
+    max-width:90px;
+}
 .add-new-item {
     float: right;
 }
@@ -39,7 +50,7 @@ th {
 }
 
 .size-input {
-    width: 300px;
+    width: 250px;
     height: 35px;
 }
 
@@ -50,18 +61,18 @@ th {
 
 div.scroll-main-window {
     padding: 4px;
-    width: 700px;
+    width: 550px;
     height: 200px;
     max-height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;
 }
+
 div.scroll-modal-window {
     padding: 4px;
     width: 100%;
     height: 400px;
-
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;
@@ -80,28 +91,99 @@ div.scroll-modal-window {
     right: 0px;
     bottom: 0px;
 }
-a{
+
+a {
     text-decoration: none
 }
+
 .layer-count {
     margin: 3px;
     width: 30px;
-    height:25px;
-
+    height: 25px;
 }
+
 .selected-material {
     position: relative;
 }
+
 .disabled {
     pointer-events: none;
     opacity: 0.4;
 }
+
 .modal-dialog {
     max-width: 700px;
     width: 700px;
     margin: 1.75rem auto;
 }
-.total-price{
-    max-width:200px;
+
+.total-price {
+    max-width: 200px;
+}
+
+.dot-color-show {
+    margin:5px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    padding-left: 5px;
+}
+
+.round-add-button {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    line-height: 22px;
+    border: 1px solid #343030;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.round-select-button {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    line-height: 22px;
+    border: 1px solid #343030;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+}
+.round-select-button.selected {
+    border: 3px solid #0026ff;
+}
+
+.modal-position {
+    position: absolute;
+    top: 400px;
+    left: 300px;
+}
+.round-delete-button .minus-icon,
+.round-delete-button .check-icon {
+    display: block; 
+    width: 15px;
+    line-height: 25px;
+    vertical-align: middle; 
+    text-align: center; 
+}
+
+.round-delete-button .minus-icon {
+    display: none;
+}
+
+.round-delete-button:hover .check-icon {
+    display: none;
+}
+
+.round-delete-button:hover .minus-icon {
+    display: block;
 }
 

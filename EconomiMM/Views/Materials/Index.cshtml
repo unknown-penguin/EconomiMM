@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>@ViewData["NameParameter"] Список матеріалів</h1>
+<h1> Список матеріалів</h1>
 
 <p>
     <a asp-action="Create">Додати новий матеріал</a>
@@ -21,7 +21,7 @@
             <th>
                 Товщина
                 <button type="button" class="btn btn-light filter-button" data-bs-toggle="modal" data-bs-target="#thicknessModal">
-                    <img class="filter-icon" src="~/img/filter.png"/>
+                    <img class="filter-icon" src="~/img/filter.png" />
                 </button>
 
             </th>
@@ -29,13 +29,27 @@
                 Розміри
             </th>
             <th>
+                Колір
+            </th>
+            <th>
                 Ціна
             </th>
+            <th>
+                Наша ціна за лист
+            </th>
+            <th>
+                Наша ціна за м2
+            </th>
+            <th>
+                Дилерська ціна за лист
+            </th>
+            <th>
+                Дилерська ціна за м2
             <th>
                 Кількість
             </th>
             <th>
-                Зарезервовано
+                Резерв
             </th>
             <th>
                 Продано
@@ -44,37 +58,62 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Thickness)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reserved)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thickness)
+                </td>
+                <td>
+                    <div class="size-cell">
+                    @Html.DisplayFor(modelItem => item.Size)
+                    </div>
+                </td>
+                <td>
+                    @if (item.Colors != null)
+                    {
+                        <div class="color-cell">
+                        @foreach (var color in item.Colors)
+                        {
+                            <span class="dot-color-show" style="background-color: @color.ColorHex;"></span>
+                        }
+                        </div>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OurPriceForSheet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OurPriceForSqMetre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DealerPriceForSheet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DealerPriceForSqMetre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reserved)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Sold)
                 </td>
-            <td>
-                <a asp-action="Sell" asp-route-id="@item.Id">Продати</a> |
-                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Sell" asp-route-id="@item.Id">Продати</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -161,5 +200,5 @@
         });
     </script>
 
-    
+
 }

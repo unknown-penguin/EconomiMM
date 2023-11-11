@@ -8,7 +8,7 @@ namespace EconomiMM.ViewModels
 
         public List<Color>? Colors { get; set; }
 
-        public string SelectedColorsId { get;set;}
+        public string? SelectedColorsId { get;set;}
 
     }
 }

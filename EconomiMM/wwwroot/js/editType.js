@@ -60,9 +60,24 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
                 "<th>" +
                     "Розміри" +
                 "</th>" +
+                "<th>" +
+                    "Колір" +
+                "</th>" +
                 "<th>"+
                     "Ціна"+
                 "</th>"+
+                "<th>" +
+                    "Наша ціна за лист" +
+                "</th>" +
+                "<th>" +
+                    "Наша ціна за м2" +
+                "</th>" +
+                "<th>" +
+                     "Дилерська ціна за лист" +
+                "</th>" +
+                "<th>" +
+                     "Дилерська ціна за м2" +
+                "</th>" +
                 "<th>" +
                     "Кількість" +
                 "</th>" +
@@ -82,6 +97,14 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
 
 
     materialDB.forEach(function (material) {
+        let colors = "";
+        if (material['colors'] && material['colors'].length > 0) {
+            material['colors'].forEach(function (materialColor) {
+
+                colors += `<span class="dot-color-show" style="background-color:${materialColor['colorHex']}"></span>`;
+            });
+
+        }
         var materialRow = "<tr id=" + material['name'] + "-" + material['thickness'] + ">" +
             "<td class=id>" +
             material['id'] +
@@ -95,8 +118,25 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
             "<td class=size>" +
             material['size'] +
             "</td>" +
+            "<td class=color>" +
+            '<div class="color-cell">' +
+            colors +
+            '</div>' +
+            "</td>" +
             "<td class=price>" +
             material['price'] +
+            "</td>" +
+            "<td>" +
+            material['ourPriceForSheet'] +
+            "</td>" +
+            "<td>" +
+            material['ourPriceForSqMetre'] +
+            "</td>" +
+            "<td>" +
+            material['dealerPriceForSheet'] +
+            "</td>" +
+            "<td>" +
+            material['dealerPriceForSqMetre'] +
             "</td>" +
             "<td contenteditable class=count>" +
             material['count'] +

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EconomiMM.Models;
 using System.Reflection.Metadata;
+using Microsoft.Extensions.Hosting;
 
 namespace EconomiMM.Data
 {
@@ -14,7 +15,7 @@ namespace EconomiMM.Data
         {
         }
 
-        public EconomiMMContext (DbContextOptions<EconomiMMContext> options)
+        public EconomiMMContext(DbContextOptions<EconomiMMContext> options)
             : base(options)
         {
 
@@ -22,9 +23,23 @@ namespace EconomiMM.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SellHistory>()
-            .Property(s => s.Id)
-            .ValueGeneratedOnAdd();
+                .Property(s => s.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Material>()
+                .HasMany(e => e.Colors)
+                .WithMany(e => e.Materials)
+                .UsingEntity<ColorMaterial>();
+
+            modelBuilder.Entity<ColorMaterial>()
+                .HasKey(cm => new { cm.MaterialId, cm.ColorId });
+
+            
+
+
         }
+
+
 
         public DbSet<Material> Material { get; set; }
 
@@ -38,6 +53,9 @@ namespace EconomiMM.Data
 
         public DbSet<LinerExpansionJointMaterial> LinerMaterials { get; set; }
         public DbSet<Product> Orders { get; set; }
+        public DbSet<Color>? Colors { get; set; }
+
+        public DbSet<ColorMaterial> colorMaterials { get; set; }
 
     }
 }
