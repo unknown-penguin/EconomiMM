@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.vs/EconomiMM/config/applicationhost.config
+/.vs/EconomiMM/DesignTimeBuild/.dtbcache.v2
+/.vs/EconomiMM/v17/.futdcache.v2
+/.vs/EconomiMM/v17/.suo
+/.vs/ProjectEvaluation/economimm.metadata.v7.bin
+/.vs/ProjectEvaluation/economimm.projects.v7.bin
+/EconomiMM/obj/EconomiMM.csproj.nuget.dgspec.json
+/EconomiMM/obj/EconomiMM.csproj.nuget.g.props
+/EconomiMM/obj/project.assets.json

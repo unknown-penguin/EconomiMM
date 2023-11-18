@@ -250,6 +250,35 @@ namespace EconomiMM.Migrations
                     b.ToTable("MaterialType");
                 });
 
+            modelBuilder.Entity("EconomiMM.Models.PriceKoeficients", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<float>("DealerPriceForSheetKoef")
+                        .HasColumnType("real");
+
+                    b.Property<float>("DealerPriceForSqMetreKoef")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("OurPriceForSheetKoef")
+                        .HasColumnType("real");
+
+                    b.Property<float>("OurPriceForSqMetreKoef")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PriceKoeficients");
+                });
+
             modelBuilder.Entity("EconomiMM.Models.Product", b =>
                 {
                     b.Property<int?>("Id")
@@ -427,13 +456,13 @@ namespace EconomiMM.Migrations
             modelBuilder.Entity("EconomiMM.Models.ColorMaterial", b =>
                 {
                     b.HasOne("EconomiMM.Models.Color", "Color")
-                        .WithMany()
+                        .WithMany("ColorMaterials")
                         .HasForeignKey("ColorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EconomiMM.Models.Material", "Material")
-                        .WithMany()
+                        .WithMany("ColorMaterials")
                         .HasForeignKey("MaterialId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -530,6 +559,16 @@ namespace EconomiMM.Migrations
                         .IsRequired();
 
                     b.Navigation("material");
+                });
+
+            modelBuilder.Entity("EconomiMM.Models.Color", b =>
+                {
+                    b.Navigation("ColorMaterials");
+                });
+
+            modelBuilder.Entity("EconomiMM.Models.Material", b =>
+                {
+                    b.Navigation("ColorMaterials");
                 });
 
             modelBuilder.Entity("EconomiMM.Models.Product", b =>

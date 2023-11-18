@@ -45,6 +45,7 @@ namespace EconomiMM.Data
 
         public DbSet<MaterialType>? MaterialType { get; set; }
 
+        public DbSet<PriceKoeficients>? PriceKoeficients { get; set; }
         public DbSet<SellHistory> SellHistory { get; set; }
         public DbSet<HubConnection>? HubConnections { get; set; }
         public DbSet<ExpansionJointMaterialType> JointMaterialTypes { get; set; }

@@ -6,9 +6,18 @@
 
 <h1> Список матеріалів</h1>
 
-<p>
-    <a asp-action="Create">Додати новий матеріал</a>
-</p>
+<div class="d-flex flex-row">
+    <div>
+        <p>
+            <a asp-action="Create">Додати новий матеріал</a>
+        </p>
+    </div>
+    <div class="ms-3">
+        <p>
+            <a asp-controller="PriceKoeficients" asp-action="Edit">Редагувати коєфіцієнти</a>
+        </p>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -69,17 +78,17 @@
                 </td>
                 <td>
                     <div class="size-cell">
-                    @Html.DisplayFor(modelItem => item.Size)
+                        @Html.DisplayFor(modelItem => item.Size)
                     </div>
                 </td>
                 <td>
                     @if (item.Colors != null)
                     {
                         <div class="color-cell">
-                        @foreach (var color in item.Colors)
-                        {
-                            <span class="dot-color-show" style="background-color: @color.ColorHex;"></span>
-                        }
+                            @foreach (var color in item.Colors)
+                            {
+                                <span class="dot-color-show" style="background-color: @color.ColorHex;"></span>
+                            }
                         </div>
                     }
                 </td>

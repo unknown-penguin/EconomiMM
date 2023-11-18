@@ -16,18 +16,20 @@ html {
 body {
     margin-bottom: 60px;
 }
-.material-table
-{
-    text-align:center;
-}
-.color-cell {
-    display:flex;
 
+.material-table {
+    text-align: center;
 }
+
+.color-cell {
+    display: flex;
+}
+
 .size-cell {
     word-wrap: break-word;
-    max-width:90px;
+    max-width: 90px;
 }
+
 .add-new-item {
     float: right;
 }
@@ -50,8 +52,9 @@ th {
 }
 
 .size-input {
+    font-size: 70% !important;
     width: 250px;
-    height: 35px;
+    height: 27px;
 }
 
 .copy-btn {
@@ -61,8 +64,8 @@ th {
 
 div.scroll-main-window {
     padding: 4px;
-    width: 550px;
-    height: 200px;
+    width: 500px;
+    height: 150px;
     max-height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -83,6 +86,7 @@ div.scroll-modal-window {
 }
 
 .joint-material-window, .flange-material-window, .liner-material-window {
+    width: 500px;
     position: relative;
 }
 
@@ -108,21 +112,23 @@ a {
 
 .disabled {
     pointer-events: none;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 .modal-dialog {
     max-width: 700px;
-    width: 700px;
+    min-width: 400px;
+    width: auto;
     margin: 1.75rem auto;
 }
+
 
 .total-price {
     max-width: 200px;
 }
 
 .dot-color-show {
-    margin:5px;
+    margin: 5px;
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -157,6 +163,7 @@ a {
     cursor: pointer;
     user-select: none;
 }
+
 .round-select-button.selected {
     border: 3px solid #0026ff;
 }
@@ -166,13 +173,14 @@ a {
     top: 400px;
     left: 300px;
 }
+
 .round-delete-button .minus-icon,
 .round-delete-button .check-icon {
-    display: block; 
+    display: block;
     width: 15px;
     line-height: 25px;
-    vertical-align: middle; 
-    text-align: center; 
+    vertical-align: middle;
+    text-align: center;
 }
 
 .round-delete-button .minus-icon {
@@ -187,3 +195,44 @@ a {
     display: block;
 }
 
+
+
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.koef-info{
+    margin-top: 405px;
+
+}

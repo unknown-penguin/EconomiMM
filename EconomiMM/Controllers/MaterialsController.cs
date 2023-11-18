@@ -150,6 +150,9 @@ namespace EconomiMM.Controllers
 
             var material = await _context.Material.Include(m => m.Colors).FirstOrDefaultAsync(m => m.Id == id);
             var colors = await _context.Colors.ToListAsync();
+
+            var manufacturer = _context.MaterialType.Where(mt => mt.Name == material.Name).FirstOrDefault().Manufacturer;
+            var priceKoeficients = _context.PriceKoeficients.Where(pk => pk.Manufacturer == manufacturer).First();
             if (material == null)
             {
                 return NotFound();
@@ -164,7 +167,8 @@ namespace EconomiMM.Controllers
                 Material = material,
 
                 SelectedColorsId = selectedColors,
-                Colors = colors
+                Colors = colors,
+                PriceKoeficients = priceKoeficients
             };
             return View(editMaterialViewModel);
         }
@@ -187,9 +191,9 @@ namespace EconomiMM.Controllers
                 {
                     // Update the Material entity with the new Color associations
                     var material = _context.Material.Include(m => m.Colors).Where(m => m.Id == editMaterialViewModel.Material.Id).First();
-                    
+                    _context.Entry(material).CurrentValues.SetValues(editMaterialViewModel.Material);
                     var selectedColor = GetSelectedColorById(editMaterialViewModel.SelectedColorsId);
-
+                    
                     // Clear existing associations
                     material.Colors.Clear();
 
@@ -204,6 +208,14 @@ namespace EconomiMM.Controllers
                         }
                     }
 
+                    var manufacturer = _context.MaterialType.Where(mt=>mt.Name == material.Name).FirstOrDefault().Manufacturer;
+                    var priceKoeficients = _context.PriceKoeficients.Where(pk => pk.Manufacturer == manufacturer).First();
+
+
+                    material.OurPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSheetKoef);
+                    material.OurPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSqMetreKoef);
+                    material.DealerPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSheetKoef);
+                    material.DealerPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSqMetreKoef);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
@@ -359,6 +371,15 @@ namespace EconomiMM.Controllers
             return new List<Color>();
 
 
+        }
+        private float CalcNewPrice(int prevPrice, float koef)
+        {
+            if (prevPrice <= 0)
+            {
+                return 0;
+            }
+            float newPrice = prevPrice * koef;
+            return (float)Math.Round(newPrice / 100.0) * 100;
         }
     }
 }

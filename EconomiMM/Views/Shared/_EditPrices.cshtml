@@ -1,0 +1,34 @@
+﻿@model EconomiMM.Models.PriceKoeficients
+@{
+}
+<div>
+
+    <form asp-action="Edit" asp-route-manufacturer="@Model.Manufacturer">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Manufacturer" class="form-control" />
+        <div class="form-group">
+            <label asp-for="OurPriceForSheetKoef" class="control-label"></label>
+            <input asp-for="OurPriceForSheetKoef" class="form-control" />
+            <span asp-validation-for="OurPriceForSheetKoef" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OurPriceForSqMetreKoef" class="control-label"></label>
+            <input asp-for="OurPriceForSqMetreKoef" class="form-control" />
+            <span asp-validation-for="OurPriceForSqMetreKoef" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DealerPriceForSheetKoef" class="control-label"></label>
+            <input asp-for="DealerPriceForSheetKoef" class="form-control" />
+            <span asp-validation-for="DealerPriceForSheetKoef" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DealerPriceForSqMetreKoef" class="control-label"></label>
+            <input asp-for="DealerPriceForSqMetreKoef" class="form-control" />
+            <span asp-validation-for="DealerPriceForSqMetreKoef" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Зберегти" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

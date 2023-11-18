@@ -41,7 +41,7 @@
                                 <i class="check-icon fa-solid fa-check fa-sm"></i>
                                 <i class="minus-icon fa-solid fa-minus fa-sm" style="color: #162237; "></i>
                             </span>
-                            
+
                         }
                     }
                     <button type="button" class="round-add-button" data-bs-toggle="modal" data-bs-target="#myModal">+</button>
@@ -91,7 +91,49 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+            <div class="modal fade" id="infoModal" data-bs-backdrop="false">
+                <div class="modal-dialog modal-position">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5>Довідка</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Ціна за позицію формується: Ціна * коефіцієнт</p>
+                            <label>Коефіцієнти</label>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Коєфіцієнт нашої ціни за лист</td>
+                                        <td>@Model.PriceKoeficients.OurPriceForSheetKoef</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Коєфіцієнт нашої ціни за м^2</td>
+                                        <td>@Model.PriceKoeficients.OurPriceForSqMetreKoef</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Коєфіцієнт дилерської ціни за лист</td>
+                                        <td>@Model.PriceKoeficients.DealerPriceForSheetKoef</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Коєфіцієнт дилерської ціни за м^2</td>
+                                        <td>@Model.PriceKoeficients.DealerPriceForSqMetreKoef</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </form>
+    </div>
+    <div class="col-md-4">
+
+            <button type="button" class="round-add-button koef-info" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
+        
     </div>
 </div>
 
@@ -113,7 +155,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
+
                 <a class="m-1" asp-controller="Colors" asp-action="Index">Редагувати кольори</a>
             </div>
 
@@ -154,16 +196,16 @@
 
                 $('#name-select').append(option);
 
-                
 
-                
+
+
             });
 
         });
 
         function removeNumberFromString(inputString, numberToRemove) {
             // Create a regular expression pattern to match the number preceded by a comma
-            var pattern = new RegExp( numberToRemove + ",", "g");
+            var pattern = new RegExp(numberToRemove + ",", "g");
 
             // Use the replace method to remove the matched pattern
             var result = inputString.replace(pattern, "");
@@ -199,9 +241,9 @@
 
         });
 
-        
 
-        
+
+
 
     </script>
     @{

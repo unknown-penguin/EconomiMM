@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EconomiMM.Models.PriceKoeficients>
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h2>Коєфіцієнти</h2>
+<div class="tab">
+    @foreach (var priceKoef in Model)
+    {
+        <button class="tablinks" data-manufacturer="@priceKoef.Manufacturer">@(priceKoef.Manufacturer)</button>
+    }
+</div>
+@foreach (var priceKoef in Model)
+{
+    <div id="@priceKoef.Manufacturer" class="tabcontent">
+        <h3>@priceKoef.Manufacturer</h3>
+        <div class="col-md-4">
+            <partial name="_EditPrices" model="@priceKoef" render="true" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".tablinks").on("click", function () {
+                // Hide all tabcontent
+                $(".tabcontent").hide();
+
+                // Remove "active" class from all tablinks
+                $(".tablinks").removeClass("active");
+
+                // Get the manufacturer from the clicked button
+                var manufacturer = $(this).data("manufacturer");
+
+                // Show the current tab
+                $("#" + manufacturer).show();
+
+                // Add "active" class to the clicked button
+                $(this).addClass("active");
+            });
+        });
+    </script>
+}
