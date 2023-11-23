@@ -26,7 +26,6 @@ $(document).on("click", ".material-type-table tr", function () {
 });
 connection.on("RecievedMaterialInfo", function (materialDB) {
     console.log("out");
-    console.log(materialDB);
     $("<tr id=\"" + materialDB[0]['name'] + "-list\">" +
         "<td colspan=\"3\">"+
             "<table class=\"table material-table\">"+
@@ -42,9 +41,23 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
                             "Розміри" +
                         "</th>" +
                         "<th>"+
+                            "Колір"+
+                        "</th>"+
+                        "<th>"+
                             "Ціна"+
                         "</th>"+
-                        
+                        "<th>" +
+                            "Наша ціна за лист" +
+                        "</th>" +
+                        "<th>" +
+                            "Наша ціна за м2" +
+                        "</th>" +
+                        "<th>" +
+                            "Дилерська ціна за лист" +
+                        "</th>" +
+                        "<th>" +
+                            "Дилерська ціна за м2" +
+                        "</th>" +
                         "<th>" +
                             "Кількість" +
                         "</th>" +
@@ -64,6 +77,15 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
     
 
     materialDB.forEach(function (material) {
+        let colors = "";
+        if (material['colors'] && material['colors'].length > 0) {
+            material['colors'].forEach(function (materialColor) {
+                
+                colors += `<span class="dot-color-show" style="background-color:${materialColor['colorHex']}"></span>`;
+            });
+            
+        }
+        
         $("<tr id=" + material['name'] + "-" + material['thickness'] + ">" +
             "<td>" +
             material['name'] +
@@ -75,7 +97,24 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
             (material['size'] != null ? material['size'] : "Не задано") +
             "</td>" +
             "<td>" +
+            '<div class="color-cell">'+
+            colors +
+            '</div>'+
+            "</td>" +
+            "<td>" +
             material['price'] +
+            "</td>" +
+            "<td>" +
+            material['ourPriceForSheet'] +
+            "</td>" +
+            "<td>" +
+            material['ourPriceForSqMetre'] +
+            "</td>" +
+            "<td>" +
+            material['dealerPriceForSheet'] +
+            "</td>" +
+            "<td>" +
+            material['dealerPriceForSqMetre'] +
             "</td>" +
             "<td>" +
             material['count'] +

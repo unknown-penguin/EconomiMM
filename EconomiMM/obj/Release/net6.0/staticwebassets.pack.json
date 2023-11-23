@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\img\\filter.png"
     },
     {
+      "Id": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\wwwroot\\img\\plus.png",
+      "PackagePath": "staticwebassets\\img\\plus.png"
+    },
+    {
       "Id": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\wwwroot\\js\\calculator.js",
       "PackagePath": "staticwebassets\\js\\calculator.js"
     },

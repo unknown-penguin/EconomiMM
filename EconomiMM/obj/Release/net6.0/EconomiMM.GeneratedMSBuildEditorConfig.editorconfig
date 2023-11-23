@@ -20,6 +20,22 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Colors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Colors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Colors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Colors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -124,6 +140,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VDYWxjdWxhdG9yXE1hdGVyaWFsRWRpdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/PriceKoeficients/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/PriceKoeficients/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/PriceKoeficients/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -162,6 +190,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Shared/_EditPrices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0UHJpY2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/project/EconomiMM/unknown-penguin/EconomiMM/EconomiMM/Views/Shared/_FlangeMaterialTree.cshtml]

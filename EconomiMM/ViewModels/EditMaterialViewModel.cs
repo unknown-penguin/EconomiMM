@@ -10,7 +10,7 @@ namespace EconomiMM.ViewModels
 
         public string? SelectedColorsId { get;set;}
 
-        public PriceKoeficients PriceKoeficients { get; set; }
+        public PriceKoeficients? PriceKoeficients { get; set; }
 
     }
 }

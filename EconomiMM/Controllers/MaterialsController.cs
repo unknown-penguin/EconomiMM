@@ -165,7 +165,6 @@ namespace EconomiMM.Controllers
             var editMaterialViewModel = new EditMaterialViewModel
             {
                 Material = material,
-
                 SelectedColorsId = selectedColors,
                 Colors = colors,
                 PriceKoeficients = priceKoeficients
@@ -189,15 +188,14 @@ namespace EconomiMM.Controllers
             {
                 try
                 {
-                    // Update the Material entity with the new Color associations
                     var material = _context.Material.Include(m => m.Colors).Where(m => m.Id == editMaterialViewModel.Material.Id).First();
                     _context.Entry(material).CurrentValues.SetValues(editMaterialViewModel.Material);
                     var selectedColor = GetSelectedColorById(editMaterialViewModel.SelectedColorsId);
                     
-                    // Clear existing associations
+
                     material.Colors.Clear();
 
-                    // Add new associations based on selectedColor
+
                     foreach (var color in selectedColor)
                     {
                         _context.Colors.Attach(color);
@@ -207,15 +205,12 @@ namespace EconomiMM.Controllers
 
                         }
                     }
+                   
+                    material.OurPriceForSheet = CalcNewPrice(material.Price, editMaterialViewModel.PriceKoeficients.OurPriceForSheetKoef); 
+                    material.OurPriceForSqMetre = CalcNewPrice(material.Price, editMaterialViewModel.PriceKoeficients.OurPriceForSqMetreKoef);
+                    material.DealerPriceForSheet = CalcNewPrice(material.Price, editMaterialViewModel.PriceKoeficients.DealerPriceForSheetKoef);
+                    material.DealerPriceForSqMetre = CalcNewPrice(material.Price, editMaterialViewModel.PriceKoeficients.DealerPriceForSqMetreKoef);
 
-                    var manufacturer = _context.MaterialType.Where(mt=>mt.Name == material.Name).FirstOrDefault().Manufacturer;
-                    var priceKoeficients = _context.PriceKoeficients.Where(pk => pk.Manufacturer == manufacturer).First();
-
-
-                    material.OurPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSheetKoef);
-                    material.OurPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSqMetreKoef);
-                    material.DealerPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSheetKoef);
-                    material.DealerPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSqMetreKoef);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
@@ -296,7 +291,7 @@ namespace EconomiMM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Sell(int id, [Bind("Id,Name,Thickness,Size,Count,Reserved,Price,Sold")] Material material)
+        public async Task<IActionResult> Sell(int id, Material material)
         {
             if (id != material.Id)
             {
@@ -372,14 +367,20 @@ namespace EconomiMM.Controllers
 
 
         }
-        private float CalcNewPrice(int prevPrice, float koef)
+        private int CalcNewPrice(int prevPrice, float koef)
         {
             if (prevPrice <= 0)
             {
                 return 0;
             }
-            float newPrice = prevPrice * koef;
-            return (float)Math.Round(newPrice / 100.0) * 100;
+
+            var newPrice = prevPrice * koef;
+            if(newPrice < 1000)
+            {
+                return (int)Math.Ceiling(newPrice / 10.0) * 10;
+            }
+
+            return (int)Math.Ceiling(newPrice / 100.0) * 100;
         }
     }
 }

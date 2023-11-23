@@ -11921,23 +11921,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tsyganok\\.nuget\\packages\\": {},
+    "C:\\Users\\Xemix\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+      "projectUniqueName": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
       "projectName": "EconomiMM",
-      "projectPath": "D:\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
-      "packagesPath": "C:\\Users\\Tsyganok\\.nuget\\packages\\",
-      "outputPath": "D:\\EconomiMM\\EconomiMM\\obj\\",
+      "projectPath": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+      "packagesPath": "C:\\Users\\Xemix\\.nuget\\packages\\",
+      "outputPath": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Tsyganok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Xemix\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11947,7 +11947,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12020,7 +12019,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

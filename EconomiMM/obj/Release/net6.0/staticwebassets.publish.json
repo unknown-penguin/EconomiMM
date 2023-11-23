@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Aww7oepu2+EtybNzoIpzQR9ZJcDa2dw86ogIDEyOFbI=",
+  "Hash": "mWeE3kJoldHA5zwphD90MSfEgBBNx1ykreXQwSjiAh0=",
   "Source": "EconomiMM",
   "BasePath": "_content/EconomiMM",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\filter.png"
+    },
+    {
+      "Identity": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\wwwroot\\img\\plus.png",
+      "SourceId": "EconomiMM",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\wwwroot\\",
+      "BasePath": "_content/EconomiMM",
+      "RelativePath": "img/plus.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\plus.png"
     },
     {
       "Identity": "F:\\project\\EconomiMM\\unknown-penguin\\EconomiMM\\EconomiMM\\wwwroot\\js\\calculator.js",
