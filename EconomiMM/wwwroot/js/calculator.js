@@ -252,7 +252,6 @@ function getSettings() {
     var obj = {
         'orderNumber': orderNumber,
         'temperature': orderTemperature,
-        //'mainPartLength1': parseFloat(jointLength1),
         'mainPartLength2': parseFloat(jointLength2) / 1000,
         'mainPartWidth': parseFloat(jointWidth) / 1000,
         'flangeWidth': parseFloat(flangeWidth) / 1000,

@@ -8,6 +8,6 @@
     "\\EconomiMM\\Views\\Products",
     "\\EconomiMM\\wwwroot"
   ],
-  "SelectedNode": "\\EconomiMM.sln",
+  "SelectedNode": "\\EconomiMM\\Controllers\\MaterialsController.cs",
   "PreviewInSolutionExplorer": false
 }
