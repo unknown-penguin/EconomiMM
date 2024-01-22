@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using EconomiMM.Data;
 using EconomiMM.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Components.Forms;
+using System.Text.RegularExpressions;
+using Microsoft.CodeAnalysis.Differencing;
 
 namespace EconomiMM.Controllers
 {
@@ -79,9 +82,9 @@ namespace EconomiMM.Controllers
                         foreach (var material in materials)
                         {
                             material.OurPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSheetKoef);
-                            material.OurPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.OurPriceForSqMetreKoef);
+                            material.OurPriceForSqMetre = (int)CalcNewPriceBySize(material.Price, priceKoeficients.OurPriceForSqMetreKoef, GetSizesOfMaterial(material.Size));
                             material.DealerPriceForSheet = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSheetKoef);
-                            material.DealerPriceForSqMetre = (int)CalcNewPrice(material.Price, priceKoeficients.DealerPriceForSqMetreKoef);
+                            material.DealerPriceForSqMetre = (int)CalcNewPriceBySize(material.Price, priceKoeficients.DealerPriceForSqMetreKoef, GetSizesOfMaterial(material.Size));
                             _context.Update(material);
                         }
                     }
@@ -102,6 +105,39 @@ namespace EconomiMM.Controllers
 
             }
             return RedirectToAction("Index", "Materials");
+        }
+        private (float, float) GetSizesOfMaterial(string materialSizeString)
+        {
+            if (string.IsNullOrWhiteSpace(materialSizeString))
+            {
+                return (1000, 1000);
+            }
+
+            string pattern = @"\b(\d{3,4})х(\d{3,4})\b";
+            Regex regex = new Regex(pattern);
+
+            Match match = regex.Match(materialSizeString);
+
+            if (match.Success)
+            {
+                float width = float.Parse(match.Groups[1].Value) / 1000;
+                float height = float.Parse(match.Groups[2].Value) / 1000;
+                return (width, height);
+            }
+            else
+            {
+                return (1000, 1000);
+            }
+
+        }
+        private float CalcNewPriceBySize(float prevPrice, float koef, (float width, float height) size)
+        {
+            if (prevPrice <= 0)
+            {
+                return 0;
+            }
+            float newPrice = prevPrice / (size.height * size.width) * koef;
+            return (float)Math.Round(newPrice / 100.0) * 100;
         }
 
         // GET: PriceKoeficients/Delete/5
@@ -146,15 +182,15 @@ namespace EconomiMM.Controllers
             return (_context.PriceKoeficients?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
-        private float CalcNewPrice(int prevPrice, float koef)
+        private float CalcNewPrice(float prevPrice, float koef)
         {
-            if(prevPrice <= 0)
+            if (prevPrice <= 0)
             {
                 return 0;
             }
             float newPrice = prevPrice * koef;
             return (float)Math.Round(newPrice / 100.0) * 100;
         }
-        
+
     }
 }

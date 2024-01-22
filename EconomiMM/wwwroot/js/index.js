@@ -27,97 +27,97 @@ $(document).on("click", ".material-type-table tr", function () {
 connection.on("RecievedMaterialInfo", function (materialDB) {
     console.log("out");
     $("<tr id=\"" + materialDB[0]['name'] + "-list\">" +
-        "<td colspan=\"3\">"+
-            "<table class=\"table material-table\">"+
-                "<thead>"+
-                    "<tr>"+
-                        "<th>"+
-                            "Назва"+
-                        "</th>"+
-                        "<th>"+
-                            "Товщина"+
-                        "</th>"+
-                        "<th>" +
-                            "Розміри" +
-                        "</th>" +
-                        "<th>"+
-                            "Колір"+
-                        "</th>"+
-                        "<th>"+
-                            "Ціна"+
-                        "</th>"+
-                        "<th>" +
-                            "Наша ціна за лист" +
-                        "</th>" +
-                        "<th>" +
-                            "Наша ціна за м2" +
-                        "</th>" +
-                        "<th>" +
-                            "Дилерська ціна за лист" +
-                        "</th>" +
-                        "<th>" +
-                            "Дилерська ціна за м2" +
-                        "</th>" +
-                        "<th>" +
-                            "Кількість" +
-                        "</th>" +
-                        "<th>" +
-                            "Зарезервовано" +
-                        "</th>" +
-                        "<th>" +
-                            "Продаж" +
-                        "</th>" +
-                    "</tr>"+
-                "</thead>"+
-                "<tbody>"+
-                "</tbody>"+
-            "</table>"+
-        "</td>"+
+        "<td colspan=\"3\">" +
+        "<table class=\"table material-table\">" +
+        "<thead>" +
+        "<tr>" +
+        "<th>" +
+        "Назва" +
+        "</th>" +
+        "<th>" +
+        "Товщина" +
+        "</th>" +
+        "<th>" +
+        "Розміри" +
+        "</th>" +
+        "<th>" +
+        "Колір" +
+        "</th>" +
+        "<th>" +
+        "  Ціна  ." +
+        "</th>" +
+        "<th class=\"table-success\">" +
+        "Наша ціна за лист" +
+        "</th>" +
+        "<th>" +
+        "Наша ціна за м2" +
+        "</th>" +
+        "<th>" +
+        "Дилерська ціна за лист" +
+        "</th>" +
+        "<th>" +
+        "Дилерська ціна за м2" +
+        "</th>" +
+        "<th class=\"table-danger\">" +
+        "Кількість" +
+        "</th>" +
+        "<th>" +
+        "Зарезервовано" +
+        "</th>" +
+        "<th>" +
+        "Продаж" +
+        "</th>" +
+        "</tr>" +
+        "</thead>" +
+        "<tbody>" +
+        "</tbody>" +
+        "</table>" +
+        "</td>" +
         "</tr>").insertAfter('#' + materialDB[0]['name']);
-    
+
 
     materialDB.forEach(function (material) {
         let colors = "";
         if (material['colors'] && material['colors'].length > 0) {
             material['colors'].forEach(function (materialColor) {
-                
+
                 colors += `<span class="dot-color-show" style="background-color:${materialColor['colorHex']}"></span>`;
             });
-            
+
         }
-        
+
         $("<tr id=" + material['name'] + "-" + material['thickness'] + ">" +
             "<td>" +
             material['name'] +
             "</td>" +
             "<td>" +
-            material['thickness'] +
+            material['thickness'] + " мм" +
             "</td>" +
             "<td>" +
             (material['size'] != null ? material['size'] : "Не задано") +
             "</td>" +
             "<td>" +
-            '<div class="color-cell">'+
+            '<div class="color-cell">' +
             colors +
-            '</div>'+
+            '</div>' +
             "</td>" +
             "<td>" +
-            material['price'] +
+            material['price'] + " €"+
+            "</td>" +
+            "<td class=\"table-success\">" +
+            material['ourPriceForSheet'] + " грн" +
             "</td>" +
             "<td>" +
-            material['ourPriceForSheet'] +
+            material['ourPriceForSqMetre'] + " грн" +
             "</td>" +
             "<td>" +
-            material['ourPriceForSqMetre'] +
+            material['dealerPriceForSheet'] + " грн" +
             "</td>" +
             "<td>" +
-            material['dealerPriceForSheet'] +
+            material['dealerPriceForSqMetre'] + " грн" +
             "</td>" +
-            "<td>" +
-            material['dealerPriceForSqMetre'] +
-            "</td>" +
-            "<td>" +
-            material['count'] +
+            "<td class=\"table-danger\">" +
+            material['count'] + " шт" +
             "</td>" +
             "<td>" +
             material['reserved'] +
@@ -125,10 +125,10 @@ connection.on("RecievedMaterialInfo", function (materialDB) {
             "<td>" +
             "<a href=\"/Materials/Sell?id=" + material['id'] + "\">Продати</a> " +
             "</td>" +
-            "</tr>").insertAfter("#" + materialDB[0]['name'] + "-list" + " tbody");
-        
+            "</tr>").appendTo("#" + materialDB[0]['name'] + "-list" + " tbody");
+
     });
-   
+
 });
 
 

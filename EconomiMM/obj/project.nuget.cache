@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0IrIGXzzx006SJOosjmNeKXTM6xw+vGLUDGNfPJP4pMdgC7iC5Ti+a2oRJ3Dh8AH0WIlpwwr0222Kzov9Gn0xQ==",
+  "dgSpecHash": "S3t/N/dF9J6DejT20rhxdaWQQiDjQjEBMBajsLwGe5JKSY3Xm39xLm1DY6lUGPYQy0IOu6kGoeSRJ5RcnUDp3Q==",
   "success": true,
-  "projectFilePath": "V:\\EconomiMM\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+  "projectFilePath": "V:\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tsyganok\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Tsyganok\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

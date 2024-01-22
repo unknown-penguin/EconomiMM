@@ -9,221 +9,217 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EconomiMM
 build_property.RootNamespace = EconomiMM
-build_property.ProjectDir = V:\EconomiMM\EconomiMM\EconomiMM\
+build_property.ProjectDir = V:\EconomiMM\EconomiMM\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = V:\EconomiMM\EconomiMM\EconomiMM
+build_property.MSBuildProjectDirectory = V:\EconomiMM\EconomiMM
 build_property._RazorSourceGeneratorDebug = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Areas/Identity/Pages/_ViewStart.cshtml]
+[V:/EconomiMM/EconomiMM/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Colors/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Colors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Colors/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Colors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Colors/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Colors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Colors/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Colors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/ExpansionJointMaterials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwYW5zaW9uSm9pbnRNYXRlcmlhbHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/FlangeMaterials/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/FlangeMaterials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/FlangeMaterials/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/FlangeMaterials/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/FlangeMaterials/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/FlangeMaterials/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/FlangeMaterials/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/FlangeMaterials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxhbmdlTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/LinerExpansionJointMaterials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZXJFeHBhbnNpb25Kb2ludE1hdGVyaWFsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Details.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Reserve.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXFJlc2VydmUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Materials/Sell.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Materials/Sell.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxzXFNlbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/MaterialTypes/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/MaterialTypes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxUeXBlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/MaterialTypes/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/MaterialTypes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxUeXBlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/MaterialTypes/Details.cshtml]
+[V:/EconomiMM/EconomiMM/Views/MaterialTypes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxUeXBlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/MaterialTypes/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/MaterialTypes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxUeXBlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/MaterialTypes/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/MaterialTypes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxUeXBlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/PriceCalculator/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/PriceCalculator/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VDYWxjdWxhdG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/PriceCalculator/MaterialEditor.cshtml]
+[V:/EconomiMM/EconomiMM/Views/PriceCalculator/MaterialEditor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VDYWxjdWxhdG9yXE1hdGVyaWFsRWRpdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/PriceKoeficients/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/PriceKoeficients/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/PriceKoeficients/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/PriceKoeficients/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/PriceKoeficients/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/PriceKoeficients/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VLb2VmaWNpZW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Products/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Products/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Products/Details.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Products/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/SellHistories/Create.cshtml]
+[V:/EconomiMM/EconomiMM/Views/SellHistories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbEhpc3Rvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/SellHistories/Delete.cshtml]
+[V:/EconomiMM/EconomiMM/Views/SellHistories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbEhpc3Rvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/SellHistories/Details.cshtml]
+[V:/EconomiMM/EconomiMM/Views/SellHistories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbEhpc3Rvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/SellHistories/Edit.cshtml]
+[V:/EconomiMM/EconomiMM/Views/SellHistories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbEhpc3Rvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/SellHistories/Index.cshtml]
+[V:/EconomiMM/EconomiMM/Views/SellHistories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbEhpc3Rvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/Error.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_EditPrices.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_EditPrices.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0UHJpY2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_FlangeMaterialTree.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_FlangeMaterialTree.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GbGFuZ2VNYXRlcmlhbFRyZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_JointMaterialTree.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_JointMaterialTree.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Kb2ludE1hdGVyaWFsVHJlZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_LinerMaterialTree.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_LinerMaterialTree.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaW5lck1hdGVyaWFsVHJlZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_LoginPartial.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_ValidationScriptsPartial.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/_ViewImports.cshtml]
+[V:/EconomiMM/EconomiMM/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/_ViewStart.cshtml]
+[V:/EconomiMM/EconomiMM/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[V:/EconomiMM/EconomiMM/EconomiMM/Views/Shared/_Layout.cshtml]
+[V:/EconomiMM/EconomiMM/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-o0qe1gtlf9

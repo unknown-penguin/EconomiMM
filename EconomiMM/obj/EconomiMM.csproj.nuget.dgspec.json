@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "V:\\EconomiMM\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {}
+    "V:\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {}
   },
   "projects": {
-    "V:\\EconomiMM\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {
+    "V:\\EconomiMM\\EconomiMM\\EconomiMM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "V:\\EconomiMM\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+        "projectUniqueName": "V:\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
         "projectName": "EconomiMM",
-        "projectPath": "V:\\EconomiMM\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
+        "projectPath": "V:\\EconomiMM\\EconomiMM\\EconomiMM.csproj",
         "packagesPath": "C:\\Users\\Tsyganok\\.nuget\\packages\\",
-        "outputPath": "V:\\EconomiMM\\EconomiMM\\EconomiMM\\obj\\",
+        "outputPath": "V:\\EconomiMM\\EconomiMM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

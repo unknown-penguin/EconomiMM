@@ -43,7 +43,7 @@
             <th>
                 Ціна
             </th>
-            <th>
+            <th class="table-success">
                 Наша ціна за лист
             </th>
             <th>
@@ -54,7 +54,7 @@
             </th>
             <th>
                 Дилерська ціна за м2
-            <th>
+            <th class="table-danger">
                 Кількість
             </th>
             <th>
@@ -93,9 +93,9 @@
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @Html.DisplayFor(modelItem => item.Price) €
                 </td>
-                <td>
+                <td class="table-success">
                     @Html.DisplayFor(modelItem => item.OurPriceForSheet)
                 </td>
                 <td>
@@ -107,7 +107,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DealerPriceForSqMetre)
                 </td>
-                <td>
+                <td class="table-danger">
                     @Html.DisplayFor(modelItem => item.Count)
                 </td>
                 <td>
