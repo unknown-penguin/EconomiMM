@@ -71,7 +71,7 @@ namespace EconomiMM.Hubs
         {
             if (string.IsNullOrWhiteSpace(materialSizeString))
             {
-                return (1000, 1000);
+                return (1, 1);
             }
 
             string pattern = @"\b(\d{3,4})х(\d{3,4})\b";
@@ -87,7 +87,7 @@ namespace EconomiMM.Hubs
             }
             else
             {
-                return (1000, 1000);
+                return (1, 1);
             }
 
         }
